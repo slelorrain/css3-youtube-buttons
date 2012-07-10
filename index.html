@@ -1,0 +1,149 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head> 
+		<meta charset="utf-8"> 
+		<title>CSS3 YouTube Buttons</title> 
+		<meta name="description" content="Using CSS3 to create YouTube-style buttons">
+		
+		<link charset='utf-8' href='yt-buttons.css' rel='stylesheet' type='text/css' />
+		
+		<style>
+			/* RESET */
+
+			html, body, div, form, p,
+			code, pre { margin: 0; padding: 0; border: 0; vertical-align: baseline; }
+
+			/* TEMPLATE */
+
+			body { font: 14px/1.333 sans-serif; color: #444; background: #eee; }
+			a { color: #980905; }
+			a:hover, a:focus, a:active { text-decoration: none; }
+			h1 { margin: 0 0 0.5em; font-size: 36px; }
+			h2 { margin: 0 0 0.75em; font-size: 21px; }
+			h3 { margin: 0 0 0.333em; font-size: 16px; font-weight: normal; }
+			p { margin: 0 0 1.333em; }
+			em { font-style: italic; }
+			table { border-collapse: separate; border-spacing: 0; margin: 0; vertical-align: middle; }
+			th { font-weight: bold; }
+			th, td { padding: 5px 25px 5px 5px; text-align: left; vertical-align: middle; }
+			pre, code { font-family: monospace, sans-serif; font-size: 1em; color:#080; }
+
+			/* TEMPLATE */
+
+			.container { position:relative; overflow:hidden; width: 600px; padding: 40px 60px; border: 1px solid #ccc; margin: 40px auto 20px; background: #fff; -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.1); -moz-box-shadow: 0 0 15px rgba(0,0,0,0.1); box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+			.container pre,
+			.container .prettyprint { padding: 0; border: 0; margin: 0 0 20px; font-size: 13px; background: #fff; }
+			.ribbon { position: absolute; top: -1px; right: -1px; opacity: 0.9; }
+			.ribbon:hover, .ribbon:focus, .ribbon:active { opacity: 1; }
+			.ribbon img { display: block; border: 0; }
+			.header { padding-right:80px; }
+			.section { margin: 40px 0 20px; }
+			.example { padding: 20px; border: 1px solid #ccc; margin: 10px -20px 20px; }
+			.example-dark{ background-color: #424242; }
+			.footer { margin: 20px 0 50px; font-size: 11px; color: #666; text-align: center; }
+			.footer a { color: #666; }
+		</style>
+		
+		<link rel="stylesheet" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css"> 
+		<script src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script> 
+	</head> 
+	<body onload="prettyPrint()">
+
+		<div class="container">
+			<a class="ribbon" href="http://github.com/slelorrain/css3-youtube-buttons" target="_blank"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+			
+			<div class="header">
+				<h1>CSS3 YouTube Buttons</h1>
+				<p><b><a href="http://github.com/slelorrain/css3-youtube-buttons" title="GitHub repository">CSS3 YouTube Buttons</a> helps you easily create YouTube-style buttons from links, buttons, and inputs.</b></p>
+			</div>
+			
+			<div class="section">
+				<h2>Buttons</h2>
+				<p>The "buttons" can be created by adding <code>class="yt-button"</code> to any appropriate <code>&lt;a></code>, <code>&lt;button></code>, or <code>&lt;input></code> element. Add a further class of <code>pill</code> to create a button pill-like button. Add a further class of <code>primary</code>, <code>dark</code>, <code>danger</code> or <code>big</code> to emphasise more important actions.</p>
+
+				<div class="example">
+					<pre class="code prettyprint"><code>&lt;a class="ytbutton">Default (link)&lt;/a></code></pre>
+					<pre class="code prettyprint"><code>&lt;input class="yt-button" type="button" value="Default (input)"></code></pre>
+					<pre class="code prettyprint"><code>&lt;button class="yt-button">Default (button)&lt;/button></code></pre>
+					<a class="yt-button">Default (link)</a>
+					<input class="yt-button" type="button" value="Default (input)">
+					<button class="yt-button">Default (button)</button>
+				</div>
+				
+				<div class="example">
+					<pre class="prettyprint"><code>&lt;button class="yt-button pill">Pill button)&lt;/button></code></pre>
+					<button class="yt-button pill">Pill button</button>
+				</div>
+				
+				<div class="example"> 
+					<pre class="prettyprint"><code>&lt;button class="yt-button active">Active button&lt;/button></code></pre>
+					<button class="yt-button active">Active button</button>
+				</div>
+				
+				<div class="example"> 
+					<pre class="prettyprint"><code>&lt;button class="yt-button" disabled>Disabled button&lt;/button></code></pre>
+					<p>or</p>
+					<pre class="prettyprint"><code>&lt;button class="yt-button disabled">Disabled button&lt;/button></code></pre>
+					<button class="yt-button" disabled>Disabled button</button>
+				</div>
+			
+				<div class="example"> 
+					<pre class="prettyprint"><code>&lt;button class="yt-button primary">Primary button&lt;/button></code></pre>
+					<button class="yt-button primary">Primary button</button>
+				</div>
+				
+				<div class="example"> 
+					<pre class="prettyprint"><code>&lt;button class="yt-button dark">Dark button&lt;/button></code></pre>
+					<button class="yt-button dark">Dark button</button>
+				</div>
+				
+				<p>More classy on a dark backgroud like <code>#424242</code> :</p>	
+				<div class="example example-dark"> 
+					<button class="yt-button dark">Dark button</button>
+				</div>
+				
+				<div class="example"> 
+					<pre class="prettyprint"><code>&lt;button class="yt-button danger">Danger&lt;/button></code></pre>
+					<button class="yt-button danger">Danger</button>
+				</div>
+				
+				<div class="example"> 
+					<pre class="prettyprint"><code>&lt;button class="yt-button big">Big button&lt;/button></code></pre>
+					<button class="yt-button big">Big button</button>
+				</div>
+				
+				<p>Of course, all those classes are culmulables.</p>
+				<div class="example">
+					<pre class="prettyprint"><code>&lt;button class="yt-button primary big" disabled>Button&lt;/button></code></pre>
+					<button class="yt-button primary big" disabled>Big primary disabled button</button>
+				</div>
+			</div>
+
+			<div class="section">
+				<h2>Grouped buttons</h2>
+				<p>@TODO</p>
+			</div>
+
+			<div class="section">
+				<h2>Browser compatibility</h2>
+				<p>Firefox 3.5+, Google Chrome, Safari 4+, IE 8+, Opera 10+.</p>
+				<p><strong>Note:</strong> Some CSS3 features are not supported in older versions of Opera and versions of Internet Explorer prior to IE 8.</p>
+			</div>
+
+			<div class="section">
+				<h2>License</h2>
+				<p>Public domain: <a href="http://unlicense.org/">http://unlicense.org/</a></p>
+			</div>
+
+			<div class="section">
+				<h2>Acknowledgements</h2>
+				<p>Inspired by <a href="http://nicolasgallagher.com/">Nicolas Gallagher</a>'s <a href="http://github.com/necolas/css3-github-buttons">CSS3 GitHub Buttons</a>.</p>
+			</div>
+		</div>
+
+		<div class="footer">
+			<a href="http://github.com/slelorrain/css3-youtube-buttons">CSS3 YouTube Buttons</a> by <a href="http://me.decaps.fr" title="Website of Simon Lelorrain">Simon Lelorrain</a>.
+		</div>
+
+	</body>
+</html>

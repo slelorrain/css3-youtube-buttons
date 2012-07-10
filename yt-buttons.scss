@@ -1,0 +1,149 @@
+/* -------------------------------------------------
+ * CSS3 YOUTUBE BUTTONS (Simon Lelorrain)
+ * Licensed under Unlicense
+ * http://github.com/slelorrain/css3-youtube-buttons
+ * ---------------------------------------------- */
+
+@import "compass/css3";
+ 
+.yt-button {
+
+	/*** Default ***/
+	&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+		display: inline-block;
+		position: relative;
+		color: #555555;
+		background-color: #E0E0E0;
+		@include background-image(linear-gradient(top, #FAFAFA, #DCDCDC));
+		@include box-shadow(#FFFFFF 0 0 1px inset);
+		@include text-shadow(0 1px 0 #FFFFFF);
+		@include border-radius(2px);
+		border: 1px solid;
+		border-color: #CCCCCC #CCCCCC #AAAAAA;
+		cursor: pointer;
+		font: 11px arial,sans-serif;
+		font-weight: bold;
+		outline: 0 none;
+		padding: 0.5em 0.91em;
+		vertical-align: middle;
+		white-space: nowrap;
+		word-wrap: normal;
+		text-decoration: none;
+	}
+	
+	&.pill{
+		border-radius: 50em 50em 50em 50em;
+	}
+	
+	&[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+		box-shadow: none;
+		color: #666666;
+		cursor: auto;
+		opacity: 0.6;
+	}	
+	
+	&:hover {
+		@include background-image(linear-gradient(top, #F0F0F0, #E6E6E6));
+		@include box-shadow(rgba(0, 0, 0, 0.25) 0 1px 2px, #FFFFFF 0 0 3px inset);
+		border-color: #AAAAAA #AAAAAA #999999;
+	}
+	
+	&:active, &.active, &.active:hover {
+		@include background-image(linear-gradient(top, #C8C8C8, #E6E6E6));
+		@include box-shadow(rgba(0, 0, 0, 0.25) 0 1px 5px inset, #FFFFFF 0 1px 0);
+		border-color: #888888 #AAAAAA #CCCCCC;
+	}
+	
+	&.big {
+		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+			font-size: 14px;
+		}
+	}
+	
+	/*** Primary ***/
+	&.primary {
+		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+			color: #FFFFFF;
+			background-color: #6891E7;
+			@include background-image(linear-gradient(top, #4495E7, #0053A6));
+			@include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset);
+			@include text-shadow(0 -1px 0 rgba(0, 0, 0, 0.5));
+			border-color: #0053A6 #0053A6 #000000;
+		}
+		
+		&:hover {
+			@include background-image(linear-gradient(top, #096BD2, #0053A6));
+			@include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
+			border-color: #002D59 #002D59 #000000;
+		}
+
+		&:active, &.active, &.active:hover {
+			@include background-image(linear-gradient(top, #014488, #175EA6));
+			@include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset, #FFFFFF 0 1px 0);
+			border-color: #000000 #002D59 #002D59;
+		}
+	}
+	
+	/*** Red ***/
+	&.danger {
+		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+			color: #FFFFFF;
+			background-color: #BC403A;
+			@include background-image(linear-gradient(top, #CF3D36, #9A3429));
+			@include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset);
+			@include text-shadow(0 -1px 0 rgba(0, 0, 0, 0.5));
+			border-color: #9A3429 #9A3429 #000000;
+		}
+		
+		&:hover {
+			@include background-image(linear-gradient(top, #AB2F2E, #9A3429));
+			@include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
+			border-color: #551717 #551717 #000000;
+		}
+
+		&:active, &.active, &.active:hover {
+			@include background-image(linear-gradient(top, #6B1716, #B22726));
+			@include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset, #FFFFFF 0 1px 0);
+			border-color: #000000 #551717 #551717;
+		}
+	}
+	
+	/*** Dark ***/
+	&.dark {
+		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+			color: #FFFFFF;
+			background-color: #454545;
+			@include background-image(linear-gradient(top , #383838, #151515));
+			@include box-shadow(rgba(255, 255, 255, 0.1) 0 1px 0 inset);
+			@include text-shadow(0 -1px 0 rgba(0, 0, 0, 0.5));
+			border-color: #151515 #151515 #000000;
+			outline: 0 none;
+		}
+
+		&:hover {
+			background-color: #333333;
+			@include background-image(linear-gradient(top , #383838 0px, #252525 100%));
+			@include box-shadow(rgba(255, 255, 255, 0.1) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
+			border-color: #111111 #111111 #000000;
+		}
+
+		&:active, &.active, &.active:hover {
+			@include background-image(linear-gradient(top, #151515, #252525));
+			@include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset, rgba(255, 255, 255, 0.1) 0 1px 0);
+			border-color: #000000 #151515 #151515;
+		}
+	}
+
+	/* @TODO */	
+	/*** Groups ***/
+	& + .yt-button {
+		margin-left: 15px;
+	}
+}
+
+/* @TODO find a better way (without hack and fix value) */	
+@-moz-document url-prefix() {
+	a.yt-button {
+		line-height: 16px;
+	}
+}
