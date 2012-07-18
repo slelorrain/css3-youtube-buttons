@@ -4,9 +4,7 @@
 		<meta charset="utf-8"> 
 		<title>CSS3 YouTube Buttons</title> 
 		<meta name="description" content="Using CSS3 to create YouTube-style buttons">
-		
 		<link charset='utf-8' href='yt-buttons.css' rel='stylesheet' type='text/css' />
-		
 		<style>
 			/* RESET */
 
@@ -43,9 +41,8 @@
 			.footer { margin: 20px 0 50px; font-size: 11px; color: #666; text-align: center; }
 			.footer a { color: #666; }
 		</style>
-		
 		<link rel="stylesheet" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css"> 
-		<script src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script> 
+		<script src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
 	</head> 
 	<body onload="prettyPrint()">
 
@@ -80,7 +77,7 @@
 					<button class="yt-button active">Active button</button>
 				</div>
 				
-				<div class="example"> 
+				<div class="example">
 					<pre class="prettyprint"><code>&lt;button class="yt-button" disabled>Disabled button&lt;/button></code></pre>
 					<p>or</p>
 					<pre class="prettyprint"><code>&lt;button class="yt-button disabled">Disabled button&lt;/button></code></pre>
@@ -114,14 +111,43 @@
 				
 				<p>Of course, all those classes are culmulables.</p>
 				<div class="example">
-					<pre class="prettyprint"><code>&lt;button class="yt-button primary big" disabled>Button&lt;/button></code></pre>
-					<button class="yt-button primary big" disabled>Big primary disabled button</button>
+					<pre class="prettyprint"><code>&lt;button class="yt-button primary big pill" disabled>Button&lt;/button></code></pre>
+					<button class="yt-button primary big pill" disabled>Button</button>
 				</div>
 			</div>
 
 			<div class="section">
 				<h2>Grouped buttons</h2>
-				<p>@TODO</p>
+				<p>Groups of buttons can be created by wrapping them in an element given a class of <code>yt-button-group</code>.</p>
+				<div class="example">
+					<pre class="prettyprint"><code>&lt;div class="yt-button-group">
+	&lt;button class="yt-button">Foo&lt;/button>
+	&lt;button class="yt-button">Bar&lt;/button>
+	&lt;button class="yt-button">Foobar&lt;/button>
+&lt;/div></code></pre>
+					<div class="yt-button-group">
+						<button class="yt-button">Foo</button>
+						<button class="yt-button">Bar</button>
+						<button class="yt-button">Foobar</button>
+					</div>
+				</div>
+
+				<div class="example">
+					<pre class="prettyprint"><code>&lt;button class="yt-button pill primary">Primary&lt;/button>
+
+&lt;div class="yt-button-group">
+	&lt;button class="yt-button pill active">Foo&lt;/button>
+	&lt;button class="yt-button">Bar&lt;/button>
+	&lt;button class="yt-button pill danger disabled">Foobar&lt;/button>
+&lt;/div></code></pre>
+
+					<button class="yt-button pill primary">Primary</button>
+					<div class="yt-button-group">
+						<button class="yt-button pill active">Foo</button>
+						<button class="yt-button">Bar</button>
+						<button class="yt-button pill danger disabled">Foobar</button>
+					</div>
+				</div>
 			</div>
 
 			<div class="section">

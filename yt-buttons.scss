@@ -8,7 +8,7 @@
  
 .yt-button {
 
-	/*** Default ***/
+	/*** Default button ***/
 	&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
 		display: inline-block;
 		position: relative;
@@ -25,14 +25,16 @@
 		font-weight: bold;
 		outline: 0 none;
 		padding: 0.5em 0.91em;
-		vertical-align: middle;
+		vertical-align: top;
 		white-space: nowrap;
 		word-wrap: normal;
 		text-decoration: none;
 	}
 	
 	&.pill{
-		border-radius: 50em 50em 50em 50em;
+		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+			@include border-radius(50em);
+		}
 	}
 	
 	&[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
@@ -60,7 +62,7 @@
 		}
 	}
 	
-	/*** Primary ***/
+	/*** Primary button ***/
 	&.primary {
 		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
 			color: #FFFFFF;
@@ -84,7 +86,7 @@
 		}
 	}
 	
-	/*** Red ***/
+	/*** Danger button ***/
 	&.danger {
 		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
 			color: #FFFFFF;
@@ -108,7 +110,7 @@
 		}
 	}
 	
-	/*** Dark ***/
+	/*** Dark button ***/
 	&.dark {
 		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
 			color: #FFFFFF;
@@ -134,14 +136,65 @@
 		}
 	}
 
-	/* @TODO */	
-	/*** Groups ***/
-	& + .yt-button {
+	& + .yt-button, & + .yt-button-group {
 		margin-left: 15px;
 	}
 }
 
-/* @TODO find a better way (without hack and fix value) */	
+/*** Grouped buttons ***/
+.yt-button-group {
+
+	& {
+    		display: inline-block;
+		vertical-align: top;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		/* IE hacks */
+		zoom: 1;
+		*display: inline;
+	}
+	
+	& + .yt-button,
+	& + .yt-button-group {
+    		margin-left: 15px;
+	}
+
+	& li {
+		float: left;
+		padding: 0;
+		margin: 0;
+	}
+
+	& .yt-button {
+		float: left;
+		margin-left: -1px;
+	}
+
+	& > .yt-button:not(:first-child):not(:last-child),
+	& li:not(:first-child):not(:last-child) .yt-button {
+    		@include border-radius(0);
+	}
+
+	& > .yt-button:first-child,
+	& li:first-child .yt-button,  {
+		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+			margin-left: 0;
+	    		@include border-top-right-radius(0);
+	    		@include border-bottom-right-radius(0);
+    		}
+	}
+
+	& > .yt-button:last-child,
+	& li:last-child > .yt-button {
+		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+	    		@include border-top-left-radius(0);
+	    		@include border-bottom-left-radius(0);
+		}
+	}
+}
+
+/* @TODO find a better way (without hack and a fixed value) */	
 @-moz-document url-prefix() {
 	a.yt-button {
 		line-height: 16px;
