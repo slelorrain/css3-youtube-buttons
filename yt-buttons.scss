@@ -25,6 +25,7 @@
 		font-weight: bold;
 		outline: 0 none;
 		padding: 0.5em 0.91em;
+		margin: 0;
 		vertical-align: top;
 		white-space: nowrap;
 		word-wrap: normal;
@@ -167,8 +168,10 @@
 	}
 
 	& .yt-button {
-		float: left;
-		margin-left: -1px;
+		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+			float: left;
+			margin: 0 0 0 -1px;
+		}
 	}
 
 	& > .yt-button:not(:first-child):not(:last-child),
@@ -180,16 +183,14 @@
 	& li:first-child .yt-button,  {
 		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
 			margin-left: 0;
-	    		@include border-top-right-radius(0);
-	    		@include border-bottom-right-radius(0);
+	    		@include border-right-radius(0);
     		}
 	}
 
 	& > .yt-button:last-child,
 	& li:last-child > .yt-button {
 		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
-	    		@include border-top-left-radius(0);
-	    		@include border-bottom-left-radius(0);
+	    		@include border-left-radius(0);
 		}
 	}
 }
@@ -197,6 +198,6 @@
 /* @TODO find a better way (without hack and a fixed value) */	
 @-moz-document url-prefix() {
 	a.yt-button {
-		line-height: 16px;
+		line-height: 15px;
 	}
 }
