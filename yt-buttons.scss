@@ -138,7 +138,7 @@
 	}
 
 	& + .yt-button, & + .yt-button-group {
-		margin-left: 15px;
+		margin-left: 10px;
 	}
 }
 
@@ -195,9 +195,12 @@
 	}
 }
 
-/* @TODO find a better way (without hack and a fixed value) */	
+/* @TODO find a better way (without hack and fixed values) */	
 @-moz-document url-prefix() {
 	a.yt-button {
 		line-height: 15px;
+		&.big {
+			line-height: 18px;
+		}
 	}
 }
