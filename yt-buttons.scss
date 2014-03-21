@@ -9,7 +9,7 @@
 .yt-button {
 
 	/*** Default button ***/
-	&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+	& {
 		display: inline-block;
 		position: relative;
 		color: #555555;
@@ -33,39 +33,43 @@
 	}
 	
 	&.pill{
-		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
-			@include border-radius(50em);
-		}
+		@include border-radius(50em);
 	}
 	
 	&[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
-		box-shadow: none;
-		color: #666666;
 		cursor: auto;
 		opacity: 0.6;
+		&:not(.primary):not(.danger):not(.dark) {
+			color: #666666;
+		}
 	}	
 	
 	&:hover {
-		@include background-image(linear-gradient(top, #F0F0F0, #E6E6E6));
-		@include box-shadow(rgba(0, 0, 0, 0.25) 0 1px 2px, #FFFFFF 0 0 3px inset);
-		border-color: #AAAAAA #AAAAAA #999999;
+		&:not([disabled]):not(.disabled) {
+			@include background-image(linear-gradient(top, #F0F0F0, #E6E6E6));
+			@include box-shadow(rgba(0, 0, 0, 0.25) 0 1px 2px, #FFFFFF 0 0 3px inset);
+			border-color: #AAAAAA #AAAAAA #999999;
+			z-index: 1;
+		}
 	}
 	
 	&:active, &.active, &.active:hover {
-		@include background-image(linear-gradient(top, #C8C8C8, #E6E6E6));
-		@include box-shadow(rgba(0, 0, 0, 0.25) 0 1px 5px inset, #FFFFFF 0 1px 0);
-		border-color: #888888 #AAAAAA #CCCCCC;
+		&:not([disabled]):not(.disabled) {
+			@include background-image(linear-gradient(top, #C8C8C8, #E6E6E6));
+			@include box-shadow(rgba(0, 0, 0, 0.25) 0 1px 5px inset, #FFFFFF 0 1px 0);
+			border-color: #888888 #AAAAAA #CCCCCC;
+			z-index: 0;
+		}
 	}
 	
 	&.big {
-		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
-			font-size: 14px;
-		}
+		font-size: 14px;
 	}
 	
 	/*** Primary button ***/
 	&.primary {
-		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+
+		& {
 			color: #FFFFFF;
 			background-color: #6891E7;
 			@include background-image(linear-gradient(top, #4495E7, #0053A6));
@@ -75,21 +79,26 @@
 		}
 		
 		&:hover {
-			@include background-image(linear-gradient(top, #096BD2, #0053A6));
-			@include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
-			border-color: #002D59 #002D59 #000000;
+			&:not([disabled]):not(.disabled) {
+				@include background-image(linear-gradient(top, #096BD2, #0053A6));
+				@include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
+				border-color: #002D59 #002D59 #000000;
+			}
 		}
 
 		&:active, &.active, &.active:hover {
-			@include background-image(linear-gradient(top, #014488, #175EA6));
-			@include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset, #FFFFFF 0 1px 0);
-			border-color: #000000 #002D59 #002D59;
+			&:not([disabled]):not(.disabled) {
+				@include background-image(linear-gradient(top, #014488, #175EA6));
+				@include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset, #FFFFFF 0 1px 0);
+				border-color: #000000 #002D59 #002D59;
+			}
 		}
 	}
 	
 	/*** Danger button ***/
 	&.danger {
-		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+
+		& {
 			color: #FFFFFF;
 			background-color: #BC403A;
 			@include background-image(linear-gradient(top, #CF3D36, #9A3429));
@@ -99,21 +108,26 @@
 		}
 		
 		&:hover {
-			@include background-image(linear-gradient(top, #AB2F2E, #9A3429));
-			@include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
-			border-color: #551717 #551717 #000000;
+			&:not([disabled]):not(.disabled) {
+				@include background-image(linear-gradient(top, #AB2F2E, #9A3429));
+				@include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
+				border-color: #551717 #551717 #000000;
+			}
 		}
 
 		&:active, &.active, &.active:hover {
-			@include background-image(linear-gradient(top, #6B1716, #B22726));
-			@include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset, #FFFFFF 0 1px 0);
-			border-color: #000000 #551717 #551717;
+			&:not([disabled]):not(.disabled) {
+				@include background-image(linear-gradient(top, #6B1716, #B22726));
+				@include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset, #FFFFFF 0 1px 0);
+				border-color: #000000 #551717 #551717;
+			}
 		}
 	}
 	
 	/*** Dark button ***/
 	&.dark {
-		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
+
+		& {
 			color: #FFFFFF;
 			background-color: #454545;
 			@include background-image(linear-gradient(top , #383838, #151515));
@@ -124,21 +138,26 @@
 		}
 
 		&:hover {
-			background-color: #333333;
-			@include background-image(linear-gradient(top , #383838 0px, #252525 100%));
-			@include box-shadow(rgba(255, 255, 255, 0.1) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
-			border-color: #111111 #111111 #000000;
+			&:not([disabled]):not(.disabled) {
+				background-color: #333333;
+				@include background-image(linear-gradient(top , #383838 0px, #252525 100%));
+				@include box-shadow(rgba(255, 255, 255, 0.1) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
+				border-color: #111111 #111111 #000000;
+			}
 		}
 
 		&:active, &.active, &.active:hover {
-			@include background-image(linear-gradient(top, #151515, #252525));
-			@include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset, rgba(255, 255, 255, 0.1) 0 1px 0);
-			border-color: #000000 #151515 #151515;
+			&:not([disabled]):not(.disabled) {
+				@include background-image(linear-gradient(top, #151515, #252525));
+				@include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset, rgba(255, 255, 255, 0.1) 0 1px 0);
+				border-color: #000000 #151515 #151515;
+			}
 		}
 	}
 
-	& + .yt-button, & + .yt-button-group {
-		margin-left: 10px;
+	& + .yt-button,
+	& + .yt-button-group {
+		margin-left: 15px;
 	}
 }
 
@@ -146,7 +165,7 @@
 .yt-button-group {
 
 	& {
-    		display: inline-block;
+   		display: inline-block;
 		vertical-align: top;
 		list-style: none;
 		padding: 0;
@@ -158,7 +177,7 @@
 	
 	& + .yt-button,
 	& + .yt-button-group {
-    		margin-left: 15px;
+   		margin-left: 15px;
 	}
 
 	& li {
@@ -168,31 +187,29 @@
 	}
 
 	& .yt-button {
-		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
-			float: left;
-			margin: 0 0 0 -1px;
-		}
+		float: left;
+		margin: 0 0 0 -1px;
+	}
+
+	&.pill .yt-button {
+		@include border-radius(50em);
 	}
 
 	& > .yt-button:not(:first-child):not(:last-child),
 	& li:not(:first-child):not(:last-child) .yt-button {
-    		@include border-radius(0);
+   		@include border-radius(0);
 	}
 
 	& > .yt-button:first-child,
 	& li:first-child .yt-button,  {
-		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
-			margin-left: 0;
-	    		@include border-right-radius(0);
-    		}
+		margin-left: 0;
+	    @include border-right-radius(0);
 	}
 
 	& > .yt-button:last-child,
 	& li:last-child > .yt-button {
-		&, &[disabled], &:hover[disabled], &.disabled, &.disabled:hover {
-	    		@include border-left-radius(0);
-		}
-	}
+   		@include border-left-radius(0);
+ 	}
 }
 
 /* @TODO find a better way (without hack and fixed values) */	
