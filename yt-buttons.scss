@@ -5,7 +5,34 @@
  * ---------------------------------------------- */
 
 @import "compass/css3";
- 
+
+@mixin button-with-shadows($background, $border, $border-active, $linear-top, $linear-bottom, $linear-top-hover, $linear-top-active, $linear-bottom-active){
+    & {
+        color: #FFFFFF;
+        background-color: $background;
+        border-color: $linear-bottom $linear-bottom $border;
+        @include background-image(linear-gradient(top, $linear-top, $linear-bottom));
+        @include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset);
+        @include text-shadow(0 -1px 0 rgba(0, 0, 0, 0.5));
+    }
+
+    &:hover {
+        &:not([disabled]):not(.disabled) {
+            border-color: $border-active $border-active $border;
+            @include background-image(linear-gradient(top, $linear-top-hover, $linear-bottom));
+            @include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
+        }
+    }
+
+    &:active, &.active, &.active:hover {
+        &:not([disabled]):not(.disabled) {
+            border-color: $border $border-active $linear-bottom;
+            @include background-image(linear-gradient(top, $linear-top-active, $linear-bottom-active));
+            @include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset);
+        }
+    }
+}
+
 .yt-button {
 
 	/*** Default button ***/
@@ -56,7 +83,7 @@
 	&:active, &.active, &.active:hover {
 		&:not([disabled]):not(.disabled) {
 			@include background-image(linear-gradient(top, #C8C8C8, #E6E6E6));
-			@include box-shadow(rgba(0, 0, 0, 0.25) 0 1px 5px inset, #FFFFFF 0 1px 0);
+			@include box-shadow(rgba(0, 0, 0, 0.25) 0 1px 5px inset);
 			border-color: #888888 #AAAAAA #CCCCCC;
 			z-index: 0;
 		}
@@ -68,91 +95,17 @@
 	
 	/*** Primary button ***/
 	&.primary {
-
-		& {
-			color: #FFFFFF;
-			background-color: #6891E7;
-			@include background-image(linear-gradient(top, #4495E7, #0053A6));
-			@include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset);
-			@include text-shadow(0 -1px 0 rgba(0, 0, 0, 0.5));
-			border-color: #0053A6 #0053A6 #000000;
-		}
-		
-		&:hover {
-			&:not([disabled]):not(.disabled) {
-				@include background-image(linear-gradient(top, #096BD2, #0053A6));
-				@include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
-				border-color: #002D59 #002D59 #000000;
-			}
-		}
-
-		&:active, &.active, &.active:hover {
-			&:not([disabled]):not(.disabled) {
-				@include background-image(linear-gradient(top, #014488, #175EA6));
-				@include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset, #FFFFFF 0 1px 0);
-				border-color: #000000 #002D59 #002D59;
-			}
-		}
+        @include button-with-shadows(#6891E7, #000000, #002D59, #4495E7, #0053A6, #096BD2, #014488, #175EA6);
 	}
 	
 	/*** Danger button ***/
 	&.danger {
-
-		& {
-			color: #FFFFFF;
-			background-color: #BC403A;
-			@include background-image(linear-gradient(top, #CF3D36, #9A3429));
-			@include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset);
-			@include text-shadow(0 -1px 0 rgba(0, 0, 0, 0.5));
-			border-color: #9A3429 #9A3429 #000000;
-		}
-		
-		&:hover {
-			&:not([disabled]):not(.disabled) {
-				@include background-image(linear-gradient(top, #AB2F2E, #9A3429));
-				@include box-shadow(rgba(255, 255, 255, 0.35) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
-				border-color: #551717 #551717 #000000;
-			}
-		}
-
-		&:active, &.active, &.active:hover {
-			&:not([disabled]):not(.disabled) {
-				@include background-image(linear-gradient(top, #6B1716, #B22726));
-				@include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset, #FFFFFF 0 1px 0);
-				border-color: #000000 #551717 #551717;
-			}
-		}
+        @include button-with-shadows(#BC403A, #000000, #551717, #CF3D36, #9A3429, #AB2F2E, #6B1716, #B22726);
 	}
 	
 	/*** Dark button ***/
 	&.dark {
-
-		& {
-			color: #FFFFFF;
-			background-color: #454545;
-			@include background-image(linear-gradient(top , #383838, #151515));
-			@include box-shadow(rgba(255, 255, 255, 0.1) 0 1px 0 inset);
-			@include text-shadow(0 -1px 0 rgba(0, 0, 0, 0.5));
-			border-color: #151515 #151515 #000000;
-			outline: 0 none;
-		}
-
-		&:hover {
-			&:not([disabled]):not(.disabled) {
-				background-color: #333333;
-				@include background-image(linear-gradient(top , #383838 0px, #252525 100%));
-				@include box-shadow(rgba(255, 255, 255, 0.1) 0 1px 0 inset, rgba(0, 0, 0, 0.5) 0 1px 3px);
-				border-color: #111111 #111111 #000000;
-			}
-		}
-
-		&:active, &.active, &.active:hover {
-			&:not([disabled]):not(.disabled) {
-				@include background-image(linear-gradient(top, #151515, #252525));
-				@include box-shadow(rgba(0, 0, 0, 0.35) 0 1px 5px inset, rgba(255, 255, 255, 0.1) 0 1px 0);
-				border-color: #000000 #151515 #151515;
-			}
-		}
+        @include button-with-shadows(#454545, #000000, #151515, #383838, #151515, #383838, #151515, #333333);
 	}
 
 	& + .yt-button,
